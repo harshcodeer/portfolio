@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pankaj kumar Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Algerian&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            transition: background-color 0.5s, color 0.5s;
+        }
+
+        .dark-mode {
+            background-color: #121212;
+            color: white;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(185, 21, 21, 0.7);
+            height: 70px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            padding: 0 20px;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: space-around;
+            padding: 0;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        nav ul li a:hover {
+            color: cyan;
+            font-size: 1.3rem;
+        }
+
+        .section {
+            width: 100vw;
+            min-height: 100vh;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            transition: opacity 0.8s ease-in-out;
+        }
+
+        .active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .section video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .roadmap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .roadmap-item {
+            display: flex;
+            align-items: center;
+            background: #f3f3f3;
+            padding: 15px;
+            border-radius: 10px;
+            position: relative;
+            width: 300px;
+            text-align: center;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .roadmap-item::after {
+            content: "↓";
+            font-size: 20px;
+            position: absolute;
+            bottom: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .roadmap-item:last-child::after {
+            content: "";
+        }
+
+        .contact-icons img {
+            width: 50px;
+            height: 50px;
+            margin: 10px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .contact-icons img:hover {
+            transform: scale(1.2);
+        }
+
+        #home h1 {
+    color: white;
+    font-size: 3rem;
+    text-align: center; /* Centers the text */
+    position: relative;
+    top: -140px; /* Moves it slightly upward */
+}
+#home div {
+        color: white; /* Set text color to white */
+        text-align: center; /* Center the text inside the div */
+        font-size: 1.5rem; /* Optional: Adjust the font size if needed */
+        margin-top: 20px; /* Add space above the div */
+    }
+
+#element {
+        color: white; /* Set the text color to white */
+        text-align: center;
+        font-size: 1.5rem;
+        margin-top: 20px;
+    }
+       #internshipDetails {
+            display: none;
+        }
+
+        #internshipDetails.active {
+            display: block;
+        }
+
+        .button {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: rgba(218, 111, 65, 0.9);
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            margin-top: 20px;
+            display: inline-block;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 10px 20px rgba(255, 126, 95, 0.4);
+        }
+        #internshipDetails {
+            display: none;
+            color: white; /* Font color changed to white */
+        }
+
+        #internshipDetails.active {
+            display: block;
+        }
+        .contact-icons {
+    display: flex;
+    justify-content: space-between; /* Spreads icons out */
+    flex-wrap: wrap; /* Allows wrapping for responsiveness */
+    width: 60%; /* Adjust width for proper spacing */
+    margin: 20px auto; /* Centers the icon container */
+}
+
+.contact-icons a {
+    flex: 1; /* Ensures even spacing */
+    display: flex;
+    justify-content: center;
+}
+
+.contact-icons img {
+    width: 50px;
+    height: 50px;
+    transition: transform 0.3s;
+}
+
+.contact-icons img:hover {
+    transform: scale(1.2);
+}
+.leftSection {
+        display: flex;
+        align-items: center;
+        font-size: 1.5rem;
+        color: white;
+    }
+
+    .profile-pic {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+    #certificates div  h1,h2 {
+        color: #f3f3f3;
+
+    }
+    
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="leftSection">
+            <img src="profile.jpg"  class="profile-pic">
+            Pankaj's Portfolio
+        </div>
+        <ul>
+            <li><a onclick="showPage('home')">Home</a></li>
+            <li><a onclick="showPage('certificates')">Certificates & Internships</a></li>
+            <li><a onclick="showPage('education')">Education</a></li>
+            <li><a onclick="showPage('contact')">Contact Me</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="home" class="section active">
+            <video autoplay loop muted>
+                <source src="Untitled design.mp4" type="video/mp4">
+            </video>
+            <h1>Welcome to My Portfolio</h1>
+            <div> </div>
+                <span id="element"></span>
+
+        </section>
+        <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script>
+        var typed = new Typed('#element', {
+          strings: ['I am a software engineer specialized in Aritifical intelligence and data scientist  '],
+          typeSpeed: 50,
+        });
+      </script>
+
+        <section id="certificates" class="section">
+            <video autoplay loop muted>
+                <source src="2.mp4" type="video/mp4">
+            </video>
+            <div class="intro">
+                <h1>Certificates</h1>
+                <a href="https://drive.google.com/drive/folders/1qEeXFt98EbEvqvhmmJPes9KkR5sUjbKj?usp=drive_link" target="_blank" class="button">Open Shared Folder</a>
+                <h2>Internships</h2>
+                <button class="button" onclick="toggleInternshipDetails()">View Internship Details</button>
+                
+                <div id="internshipDetails">
+                    <h3>IBM SkillBuild Internship</h3>
+                    <p>Duration: July - August 2024</p>
+                    <p>Focus on Data Analytics using Jupyter Notebook, Python, Data Cleaning, Refining, Visualization. Worked on the project "Inequality in Education".</p>
+                    
+                    <h3>Onspire Internship & Training</h3>
+                    <p>Duration: 8 weeks</p>
+                    <p>Focused on iOS Mobile Application Development, creating Mac-based clones of Netflix and Instagram, implementing UI transitions and interactions.</p>
+
+                    <h3>Inatel Unnati Internship</h3>
+                    <p>Duration: May- July2024</p>
+                    <p>Focussed on Machine and Deep Learning algorithms, made a project named Detect pixelated Image and correct it using OpenCV.</p>
+                </div>
+
+
+            </div>
+        </section>
+
+        <section id="education" class="section">
+            <video autoplay loop muted>
+                <source src="ed video.mp4" type="video/mp4">
+            </video>
+            <div class="roadmap">
+                <div class="roadmap-item">Matriculation: CBSE Board (2019)</div>
+                <div class="roadmap-item">Intermediate: CBSE Board (2021)</div>
+                <div class="roadmap-item">BTech in AI & Data Science: MDU (2022-2026)</div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <video autoplay loop muted>
+                <source src="contact.mp4" type="video/mp4">
+            </video>
+            <h1>Contact Me</h1>
+            <div class="contact-icons">
+                <a href="mailto:pankajk45237@gmail.com" target="_blank">
+                    <img src="gmail.jpg" alt="Email"></a>
+                <a href="https://www.instagram.com/ha_rs_hu02" target="_blank"onclick="return confirm('Do you want to open Instagram?')">
+                    <img src="insta.jpg" alt="Instagram"></a>
+                <a href="https://github.com/harshcodeer" target="_blank"onclick="return confirm('Do you want to open GitHub?')">
+                    <img src="github.png" alt="GitHub"></a>
+                <a href="tel:7015070344"><img src="phone.jpg" alt="Phone"></a>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function showPage(pageId) {
+            document.querySelectorAll('.section').forEach(section => section.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+        }
+
+        function toggleInternshipDetails() {
+            document.getElementById('internshipDetails').classList.toggle('active');
+        }
+    </script>
+    
+</body>
+</html>
