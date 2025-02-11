@@ -1,0 +1,20 @@
+{
+  "name": "pankaj-portfolio",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "echo 'No build step required' && exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/harshcodeer/portfolio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/harshcodeer/portfolio/issues"
+  },
+  "homepage": "https://github.com/harshcodeer/portfolio#readme",
+  "description": ""
+}
